@@ -5,20 +5,67 @@ var title = require('title');
 var request = require('superagent');
 var header = require('../header');
 var axios = require('axios');
+var Webcam = require('webcamjs');
+var picture = require('../picture-card');
 
-page('/', header, loading, asyncLoad, function (ctx, next) {
+page('/', header, asyncLoad, function (ctx, next) {
   title('clovigram');
   var main = document.getElementById('main-container');
 
   empty(main).appendChild(template(ctx.pictures));
-})
 
-function loading(ctx, next) {
-  var el = document.createElement('div');
-  el.classList.add('loader');
-  document.getElementById('main-container').appendChild(el);
-  next();
-}
+  const picturePreview = document.getElementById('picture-preview')
+  const camaraInput = document.getElementById('camara-input')
+  const cancelPicture = $('#cancelPicture');
+  const shootButton = $('#shoot');
+  const uploadButton = $('#uploadButton')
+
+  function reset() {
+    picturePreview.classList.add('hide');
+    camaraInput.classList.remove('hide');
+    cancelPicture.addClass('hide');
+    shootButton.removeClass('hide');
+    uploadButton.addClass('hide');
+  }
+
+  cancelPicture.click(reset);
+
+  $('.modal-trigger').leanModal({
+    ready: function () {
+      Webcam.attach('#camara-input')
+      shootButton.click(() => {
+        Webcam.snap((data_uri) => {
+          picturePreview.innerHTML = `<img src="${data_uri}"/>`;
+          picturePreview.classList.remove('hide');
+          camaraInput.classList.add('hide');
+          cancelPicture.removeClass('hide');
+          shootButton.addClass('hide');
+          uploadButton.removeClass('hide')
+          uploadButton.off('click')
+          uploadButton.click(() => {
+            const pic = {
+              url: data_uri,
+              likes: 0,
+              liked: false,
+              createdAt: +new Date(),
+              user: {
+                avatar: "http://k44.kn3.net/153FBFD4E.jpg",
+                username: "miasome"
+              }
+            }
+            $('#picture-cards').prepend(picture(pic));
+            reset();
+            $('#modalCamara').closeModal();
+          });
+        });
+      })
+    },
+    complete: function () {
+      Webcam.reset()
+      reset()
+    }
+  });
+})
 
 function loadPictures(ctx, next) {
   request

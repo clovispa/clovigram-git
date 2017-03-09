@@ -3,7 +3,7 @@ module.exports = {
   'logout': 'Salir',
   'english': 'Inglés',
   'spanish': 'Español',
-  'signup.subheading': 'Regístrate para ver fotos de tus amigos estudiando en boxinnova',
+  'signup.subheading': 'Regístrate para ver fotos de tus amigos estudiando en Platzi',
   'signup.facebook': 'Iniciar sesión con Facebook',
   'signup.text': 'Iniciar sesión',
   'email': 'Correo electrónico',
@@ -15,6 +15,7 @@ module.exports = {
   'signin': 'Entrar',
   'signin.not-have-account': '¿No tienes una cuenta?',
   'language': 'Idioma',
-   'upload-picture': 'Subir foto',
-  'upload': 'Subir'
+  'upload-picture': 'Subir foto',
+  'upload': 'Subir',
+  'take-picture': 'Tomar foto'
 }

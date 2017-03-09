@@ -6675,3 +6675,24 @@ body {
   display: block;
   transition: all .5s ease;
   opacity: 1; }
+
+#modalCamara .camara-picture {
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative; }
+  #modalCamara .camara-picture .overlay {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 0;
+    transition: all .5s ease;
+    opacity: 1; }
+  #modalCamara .camara-picture .overlay {
+    opacity: 0; }
+  #modalCamara .camara-picture img {
+    width: 400px;
+    height: 300px; }
+
+#modalCamara button {
+  float: none; }

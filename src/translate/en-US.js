@@ -6,7 +6,7 @@ module.exports = {
   'logout': 'Logout',
   'english': 'English',
   'spanish': 'Spanish',
-  'signup.subheading': 'Signup to watch your friends\' pictures studying at boxinnova',
+  'signup.subheading': 'Signup to watch your friends\' pictures studying at Platzi',
   'signup.facebook': 'Signup with Facebook',
   'signup.text': 'Signup',
   'email': 'Email',
@@ -19,5 +19,6 @@ module.exports = {
   'signin.not-have-account': '¿Don\'t have an account?',
   'language': 'Language',
   'upload-picture': 'Upload picture',
-  'upload': 'Upload'
+  'upload': 'Upload',
+  'take-picture': 'Take picture'
 }
