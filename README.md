@@ -1,3 +1,3 @@
 # clovigram-git
-mi clovigram
+ clovigram
 proyecto hecho con fines educativos
